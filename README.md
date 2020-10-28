@@ -21,11 +21,18 @@ HTML, CSS, JAVASCRIPT
 ![filter](https://user-images.githubusercontent.com/22594993/97378488-c4aaf080-1905-11eb-9292-506b8a667ac1.png)
 
 
-## js 코트 리뷰
-1. 클릭시 이벤트 위임 과 버튼 루프로 클릭 비교 
-2. 텍스트 스트링과 innerHtml vs 개별 생성하여 append 비교 
--> append의 경우에는 요소의 개수만큼 만들어 매번 할당을 하는 방식이고,
-innerHTML은 노드를 직렬화하여 개수만큼 만들어 한 번 할당하는 방식이므로 innerHTML이 더 빠른 속도로 수행됩니다
+## js 코드 리뷰
+### 클릭시 이벤트 위임 과 버튼 루프로 클릭 비교
 
+### 텍스트 스트링과 innerHtml vs 개별 생성하여 append 비교 
+<pre> append의 경우에는 요소의 개수만큼 만들어 매번 할당을 하는 방식이고,
+innerHTML은 노드를 직렬화하여 개수만큼 만들어 한 번 할당하는 방식이므로 innerHTML이 더 빠른 속도로 수행됩니다
+</pre>
+
+### fecth 크로스 브라우징 
+
+<pre><script src=https://cdn.jsdelivr.net/npm/promise-polyfill@8.1/dist/polyfill.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/whatwg-fetch@3.0/dist/fetch.umd.min.js></script> 
+</pre>
 
 
