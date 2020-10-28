@@ -12,17 +12,12 @@ HTML, CSS, JAVASCRIPT
 
 ## Screen Shot 
 ### 메인
-![메인](/main.png)
+![main](https://user-images.githubusercontent.com/22594993/97378484-c379c380-1905-11eb-91e2-039c81c0b72e.png)
 
 ### 티셔츠 
-![필터링](/filter.png " title")
-
-## 주요기능
-
-2.8. 이미지
+![filter](https://user-images.githubusercontent.com/22594993/97378488-c4aaf080-1905-11eb-9292-506b8a667ac1.png)
 
 
-2.9. 줄바꿈
-3칸 이상 띄어쓰기( )를 하면 줄이 바뀐다.
 
-<hr/>
+
+
