@@ -38,3 +38,97 @@ innerHTML은 노드를 직렬화하여 개수만큼 만들어 한 번 할당하�
 참고 링크 https://opentutorials.org/course/3281/20577
 
 
+
+## json 로드시 
+### 1. 패치 활용
+<pre>function loadItems() {
+	return (
+		fetch('../data/data.json')
+			//response > body > ReadableStream 들어있다.
+			.then((response) => response.json())
+			.then((json) => json.items)
+	);
+}</pre>
+
+### 2. ajax (+jquery)
+<pre>
+$.ajax({
+	type: 'GET',
+	url: '../data/data.json',
+	ansync: false,
+	dataType: 'json',
+
+	success: function (data) {
+		var items = data.items;
+
+		displayItems(items);
+		setEventListeners(items);
+	},
+	error: function (xhr, status, error) {
+		alert(error);
+	},
+}); //아작스 end
+</pre>
+
+## html 변환
+
+### 1. forEach 
+<pre>
+function displayItems(items) {
+	//forEach 활용
+	var content = '';
+	items.forEach((item) => {
+		content += `<li class="item">
+		<img src="${item.image}" alt="${item.type}" class="item__thumbnail">
+		<span class="item__description">${item.gender}, ${item.size}</span></li>`;
+	});
+
+	itemList.innerHTML = content;
+}
+
+
+displayItems(items)  데이터로드된곳에서  선언한다.
+</pre>
+
+
+
+### 2. forEach 
+<pre>
+function displayItems(items) {
+	//받아온 items 데이터를 html 요소로 변환한다.
+	const container = document.querySelector('.item__list');
+	//map + join 활용
+    container.innerHTML = items.map((item) => createHTMLString(item)).join('');
+    
+    function createHTMLString(item) {
+        //스트링 템플릿
+        return `<li class="item">
+        <img src="${item.image}" alt="${item.type}" class="item__thumbnail">
+        <span class="item__description">${item.gender}, ${item.size}</span></li>`;
+    }
+}
+
+
+displayItems(items)  데이터로드된곳에서  선언한다.
+
+</pre>
+
+
+### 3. filter 시켜 반환함
+<pre>	var buttons = document.querySelectorAll('.category__buttons button');
+
+	buttons.forEach(function (button) {
+		button.addEventListener('click', function (event, ele) {
+			var target = event.target;
+			var key = target.dataset.key;
+			var value = target.dataset.value;
+			itemList.innerHTML = ''; //초기화
+
+			var filtered = items.filter(function (item) {
+				return item[key] === value;
+			});
+
+			displayItems(filtered);
+		});
+	});
+}</pre>
