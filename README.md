@@ -53,7 +53,7 @@ innerHTML은 노드를 직렬화하여 개수만큼 만들어 한 번 할당하�
 ### 2. ajax (+jquery)
 <pre>
 $.ajax({
-	type: 'GET',
+type: 'GET',
 	url: '../data/data.json',
 	ansync: false,
 	dataType: 'json',
